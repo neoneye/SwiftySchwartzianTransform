@@ -1,3 +1,4 @@
+// MIT license. Copyright © 2017 Simon Strandgaard. All rights reserved.
 import XCTest
 @testable import SwiftySchwartzianTransform
 
