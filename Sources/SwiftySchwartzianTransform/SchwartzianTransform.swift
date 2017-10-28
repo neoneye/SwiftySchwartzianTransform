@@ -30,9 +30,9 @@ extension SchwartzianTransform: CustomStringConvertible {
 	public var description: String {
 		let typeT = type(of: T.self)
 		let typeC = type(of: C.self)
-		let itemCount: Int = unorderedPairs.count
+		let elementCount: Int = unorderedPairs.count
 		let before: [C] = unorderedPairs.map { $0.0 }
 		let after: [C] = orderedPairs.map { $0.0 }
-		return "Sort \(itemCount) elements of \(typeT) by comparing \(typeC)\n\nbefore: \(before)\n\nafter: \(after)"
+		return "Sort \(elementCount) elements of \(typeT) by comparing \(typeC)\n\nbefore: \(before)\n\nafter: \(after)"
 	}
 }
