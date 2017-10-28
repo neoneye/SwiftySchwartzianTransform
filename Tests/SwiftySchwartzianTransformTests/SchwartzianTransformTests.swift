@@ -1,12 +1,12 @@
 import XCTest
 @testable import SwiftySchwartzianTransform
 
-class SwiftySchwartzianTransformTests: XCTestCase {
+class SchwartzianTransformTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(SwiftySchwartzianTransform().text, "Hello, World!")
+        XCTAssertEqual(SchwartzianTransform().text, "Hello, World!")
     }
 
 
