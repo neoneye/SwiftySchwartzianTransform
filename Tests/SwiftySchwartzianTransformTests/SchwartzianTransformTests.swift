@@ -75,7 +75,7 @@ extension Record {
 
 
 class SchwartzianTransformTests: XCTestCase {
-    func testBasic() {
+	func testBasic() {
 		let allRecords: [Record] = [
 			Record(id: 5, text: "B"),
 			Record(id: 0, text: "A"),
@@ -102,7 +102,7 @@ class SchwartzianTransformTests: XCTestCase {
 			let texts: [String] = records.map { $0.text ?? "NIL" }
 			XCTAssertEqual(texts, ["NIL", "NIL", "NIL", "B", "b", "B", "A", "a", "A"])
 		}
-    }
+	}
 
 	func testEmpty() {
 		let allRecords = [Record]()
@@ -116,8 +116,8 @@ class SchwartzianTransformTests: XCTestCase {
 		}
 	}
 
-    static var allTests = [
-        ("testBasic", testBasic),
-        ("testEmpty", testEmpty),
-    ]
+	static var allTests = [
+		("testBasic", testBasic),
+		("testEmpty", testEmpty),
+	]
 }
