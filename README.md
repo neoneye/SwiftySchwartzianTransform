@@ -37,10 +37,11 @@ https://en.wikipedia.org/wiki/Schwartzian_transform
         Record(id: 8, text: nil),
     ]
 
+With big classes then things gets messy. This is what a Schwartzian Transform is good at.
 
-With this simple `Record` class then one can use Apple's `Collection.sorted` function, like this:
+However with this simple `Record` class then one can use Apple's `Collection.sorted` function, like this:
 
-    let records = allRecords.sorted(by: { (lhs, rhs) -> Bool in
+    let output = input.sorted(by: { (lhs, rhs) -> Bool in
         if let text0 = lhs.text?.lowercased(), let text1 = rhs.text?.lowercased() {
             if text0 == text1 {
                 return lhs.id < rhs.id
@@ -53,6 +54,23 @@ With this simple `Record` class then one can use Apple's `Collection.sorted` fun
         return lhs.text != nil
     })
 
-However with a bigger class then things gets messy. This is what a Schwartzian Transform is good at.
+The same looks like this with a Schwartzian Transform.
 
-Please see the unittest code for how to use this framework.
+    import SwiftySchwartzianTransform
+    // ...
+    func sort(_ records: [Record]) -> [Record] {
+        typealias ST = SchwartzianTransform<Record, RecordSortKey>
+        let st = ST(records, reverse: false) { (_, record) -> RecordSortKey in
+            if let text = record.text?.lowercased() {
+                return RecordSortKey.textAndId(text: text, id: record.id)
+            } else {
+                return RecordSortKey.id(id: record.id)
+            }
+        }
+        print(st)
+        return st.result
+    }
+    // ...
+    let output = sort(input)
+
+Please see the unittest code for this full usecase.
